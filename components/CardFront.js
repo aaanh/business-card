@@ -11,7 +11,7 @@ export default function CardFront({ isFront }) {
         <img alt="avatar" title={avatar} className="rounded-full w-36" src={avatar}></img>
       </div>
       
-      <div id="text-content" class="flex flex-wrap flex-col">
+      <div id="text-content" className="flex flex-wrap flex-col">
         
       
         <h1 className="font-medium text-xl">{name}</h1>
