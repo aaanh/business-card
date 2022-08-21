@@ -14,7 +14,7 @@ export default function CardFront({ isFront }) {
       <div id="text-content" className="flex flex-wrap flex-col">
         
       
-        <h1 className="font-medium text-xl">{name}</h1>
+        <h1 className="font-bold text-xl">{name}</h1>
         <h2 className="text-md">{title}</h2>
         
       </div>
