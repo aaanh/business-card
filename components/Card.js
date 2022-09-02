@@ -1,6 +1,6 @@
 import CardFront from "./CardFront"
 import CardBack from "./CardBack"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaExchangeAlt } from "react-icons/fa"
 
 import { BsArrowBarRight } from "react-icons/bs"
@@ -8,7 +8,16 @@ import { BsArrowBarRight } from "react-icons/bs"
 export default function Card() {
 
 	const [isFront, setIsFront] = useState(true)
-  const [themeBtnTxt, setThemeBtnTxt] = useState("dark");
+	
+	useEffect(() => {
+    // set localstorage theme according to global preference
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      localStorage.setItem("theme", theme);
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+  })
 
 	return (
 		<div className="font-['Be_Vietnam_Pro'] font-light relative m-2 sm:m-0 rounded-md border border-green-500 dark:border-green-300 p-6 flex flex-col flex-wrap sm:w-[512px] w-full min-h-[312px]">
@@ -28,11 +37,11 @@ export default function Card() {
 							if (localStorage.getItem("theme") === "dark") {
 								document.documentElement.classList.remove("dark");
 								localStorage.setItem("theme", "light");
-								setThemeBtnTxt("light");
+								
 							} else {
 								document.documentElement.classList.add("dark");
 								localStorage.setItem("theme", "dark");
-								setThemeBtnTxt("dark");
+								
 							}
 						}}
 					>
